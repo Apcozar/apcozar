@@ -8,6 +8,8 @@
 - 🚀 Currently expanding my skills in the AI field and it's practical applications.
 - 🌍 Interested in fintech, banking, investments and blockchain technologies. Currently looking for contributing in Open Source projects.
 
+![Languages](https://raw.githubusercontent.com/Apcozar/apcozar/main/metrics.plugin.languages.svg)
+
 <h1 align="center">👨🏻‍💻 Technologies That I Know</h1>
   
 ![Python](https://img.shields.io/badge/-Python-05122A?style=flat&logo=python)&nbsp;
