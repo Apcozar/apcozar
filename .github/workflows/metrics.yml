@@ -2,24 +2,35 @@ name: Metrics (languages)
 
 on:
   schedule:
-    - cron: '0 6 * * *'   # todos los días 06:00 UTC
+    - cron: '0 6 * * *'
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: write                # imprescindible para poder commitear
     steps:
       - name: Generate languages (most-used)
         uses: lowlighter/metrics@latest
         with:
+          # --- Auth para leer (tu PAT classic guardado como Repository secret)
           token: ${{ secrets.METRICS_TOKEN }}
+
+          # --- Forzar cómo y dónde se guarda la salida
+          output_action: commit
+          committer_branch: main      # cambia a master si es tu rama
+          committer_token: ${{ secrets.GITHUB_TOKEN }}   # token del job para hacer push
+          committer_message: "[metrics] update languages"
+
+          # --- Archivo generado
           filename: metrics.plugin.languages.svg
-          base: ""                # no otros módulos
+
+          # --- Plugin
+          base: ""
           plugin_languages: yes
           plugin_languages_limit: 8
           # plugin_languages_ignored: html, css
           # plugin_languages_threshold: 2%
           # plugin_languages_details: bytes-size, percentage
-
+          
